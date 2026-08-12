@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OT Manager - Procedure Requirements</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f8fafc; }
+  </style>
+</head>
+<body class="min-h-screen p-4">
+  <div class="max-w-3xl mx-auto space-y-4">
+    <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+      <h1 class="text-lg font-bold text-slate-800">Procedure Requirements – Test Configuration</h1>
+      <p class="text-xs text-slate-500 mt-1">
+        This is a separate configuration file. The main OT Manager reads the JSON data below and displays matching requirements only in the Upcoming Surgeries tab.
+      </p>
+    </div>
+
+    <div id="testCards" class="space-y-3"></div>
+
+    <div class="bg-white rounded-xl border border-amber-200 p-4 shadow-sm">
+      <h2 class="text-sm font-bold text-amber-800">How to add a procedure later</h2>
+      <p class="text-xs text-slate-600 mt-1">Add another object inside the JSON array below. Keep keywords short enough to match common variations of the procedure name.</p>
+      <pre class="mt-3 bg-slate-900 text-slate-100 rounded-lg p-3 text-[11px] overflow-x-auto">{
+  "id": "acl-reconstruction",
+  "name": "ACL Reconstruction",
+  "keywords": ["acl", "acl reconstruction"],
+  "requirements": ["Scopy tower", "Shaver", "ACL jig"],
+  "instructions": ["Confirm tower availability", "Check shaver and jig"]
+}</pre>
+    </div>
+  </div>
+
+  <!--
+    IMPORTANT:
+    The main OT Manager reads this exact element by id.
+    Do not rename procedureRequirementsData.
+  -->
+  <script type="application/json" id="procedureRequirementsData">
+[
+  {
+    "id": "acl-reconstruction",
+    "name": "ACL Reconstruction",
+    "keywords": ["acl", "acl reconstruction", "arthroscopic acl"],
+    "requirements": [
+      "Arthrex system (new/old)",
+      "Arthrex shaver",
+      "ACL set -1",
+      "Smith & Nephew fixed loop",
+      "Infinity loop",
+      "Arthrex TightRope",
+      "Bioscrews",
+      "Normed button towing PEEK",
+      "2-0 FiberWire"
+    ],
+    "instructions": [
+      "Confirm preferred camera system and shaver console setup with sir",
+"If using ACL set 2, ensure the Biotech jig is included"
+    ]
+  },
+  {
+    "id": "tkr",
+    "name": "Total Knee Replacement",
+    "keywords": ["tkr", "total knee replacement", "total knee arthroplasty"],
+    "requirements": [
+      "Knee replacement instrument set",
+      "Power drill",
+      "Tourniquet"
+    ],
+    "instructions": [
+      "Confirm implant system and required sizes",
+      "Keep appropriate instrumentation available"
+    ]
+  },
+  {
+    "id": "thr",
+    "name": "Total Hip Replacement",
+    "keywords": ["total hip replacement", "total hip arthroplasty"],
+    "requirements": [
+      "Hip replacement instrument set",
+      "Power drill",
+      "Appropriate implant system"
+    ],
+    "instructions": [
+      "Confirm implant sizes and availability",
+      "Keep required instruments ready"
+    ]
+  },
+  {
+    "id": "femur-im-nailing",
+    "name": "Femur IM Nailing",
+    "keywords": ["femur im nail", "femur nailing", "interlocking femur nail", "im nailing femur"],
+    "requirements": [
+      "Femur nailing set",
+      "Image intensifier / C-arm",
+      "Power drill"
+    ],
+    "instructions": [
+      "Confirm C-arm availability",
+      "Confirm required nail sizes"
+    ]
+  },
+  {
+    "id": "meniscus-repair",
+    "name": "Meniscus Repair",
+    "keywords": [
+      "meniscus repair",
+      "meniscal balancing",
+      "meniscus excision",
+      "meniscal shaving",
+      "all inside meniscus"
+    ],
+    "requirements": [
+      "Arthrex system (new/old)",
+      "Arthrex shaver",
+      "ACL set -1",
+      "Arthrex TightRope",
+      "Firstpass Mini",
+      "Shoulder Scorpion",
+      "Knee Scorpion",
+      "Ultrabraid",
+      "FiberWire (x2)",
+      "Sironix SureStitch",
+      "Inside-out repair needles"
+    ],
+    "instructions": [
+      "Ask surgeon whether to prepare the Arthrex or Smith & Nephew system",
+      "Verify all-inside repair devices (Sironix SureStitch / Firstpass Mini) and inside-out cannula/needles are available"
+    ]
+  },
+  {
+    "id": "meniscus-root-repair",
+    "name": "Meniscus Root Repair",
+    "keywords": [
+      "meniscus root repair",
+      "meniscal root tear",
+      "transtibial root repair",
+      "root repair"
+    ],
+    "requirements": [
+      "Arthrex system (new/old)",
+      "Meniscus mentor",
+      "Meniscus root jig",
+      "Firstpass Mini",
+      "Shoulder Scorpion",
+      "Knee Scorpion",
+      "Sironix SureStitch",
+      "Nitinol wire passer",
+      "Ultrabraid"
+    ],
+    "instructions": [
+      "Confirm camera and shaver system choice (Arthrex vs Stryker system)",
+      "If using ACL set 2, ensure the Biotech jig is included",
+      "Verify availability of transtibial drilling jig and Nitinol suture passer"
+    ]
+  },
+  {
+    "id": "pcl-reconstruction",
+    "name": "PCL Reconstruction",
+    "keywords": [
+      "PCL",
+      "pcl reconstruction",
+      "posterior cruciate ligament"
+    ],
+    "requirements": [
+      "Arthrex system (new/old)",
+      "Arthrex shaver",
+      "ACL set -1",
+      "Smith & Nephew fixed loop",
+      "Infinity loop",
+      "Arthrex TightRope",
+      "Bioscrews",
+      "Normed button towing PEEK",
+      "2-0 FiberWire"
+    ],
+    "instructions": [
+      "Confirm preferred camera system and shaver console setup with sir",
+"If using ACL set 2, ensure the Biotech jig is included"
+    ]
+  },
+  {
+    "id": "mcl-repair-reconstruction",
+    "name": "MCL Repair / Reconstruction",
+    "keywords": [
+      "mcl",
+      "mcl repair",
+      "medial collateral ligament",
+      "mcl reconstruction"
+    ],
+    "requirements": [
+      "Stryker 1588 camera system",
+      "Stryker shaver",
+      "ACL set -2",
+      "Biotech jig",
+      "MCL bone stapler",
+      "5 mm  suture anchor",
+      "Open tendon stripper",
+      "Sorath 4 mm CC  screws",
+      "Sironix SureStitch"
+    ],
+    "instructions": [
+      "Confirm  implant and camera system with sir",
+"Confirm styler and arthex system over lap is not there in requirements"
+    ]
+  },
+  {
+    "id": "hto-high-tibial-osteotomy",
+    "name": "High Tibial Osteotomy (HTO)",
+    "keywords": [
+      "HTO",
+      "high tibial osteotomy",
+      "Hto",
+      "medial opening wedge hto",
+      "alignment surgery"
+    ],
+    "requirements": [
+      "Sorath HTO plate and instrumentation",
+      "Radiolucent spike",
+      "Lamina spreader",
+      "Surgical saw  blade",
+      "4 mm CC screws"
+    ],
+    "instructions": [
+      "Confirm target correction angle, plate size, and graft choice (if any) with sir",
+      "Verify C-arm fluoroscopy machine "
+    ]
+  }
+
+]
+  </script>
+
+  <script>
+    const data = JSON.parse(document.getElementById('procedureRequirementsData').textContent);
+    const container = document.getElementById('testCards');
+
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-xl border border-slate-200 p-4 shadow-sm';
+      card.innerHTML = `
+        <div class="flex justify-between gap-3">
+          <div>
+            <h2 class="text-sm font-bold text-slate-800">${item.name}</h2>
+            <p class="text-[10px] text-slate-400 mt-0.5">Keywords: ${item.keywords.join(', ')}</p>
+          </div>
+          <span class="text-[9px] bg-indigo-50 text-indigo-700 px-2 py-1 rounded-full h-fit">Test entry</span>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3 mt-3">
+          <div class="bg-indigo-50 rounded-lg p-2">
+            <div class="text-[10px] font-bold text-indigo-700 uppercase">Keep Ready</div>
+            <ul class="list-disc pl-4 text-xs text-slate-700 mt-1 space-y-0.5">${item.requirements.map(x => `<li>${x}</li>`).join('')}</ul>
+          </div>
+          <div class="bg-slate-50 rounded-lg p-2">
+            <div class="text-[10px] font-bold text-slate-600 uppercase">Instructions</div>
+            <ul class="list-disc pl-4 text-xs text-slate-700 mt-1 space-y-0.5">${item.instructions.map(x => `<li>${x}</li>`).join('')}</ul>
+          </div>
+        </div>`;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
